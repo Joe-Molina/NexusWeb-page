@@ -1,0 +1,51 @@
+---
+interface Props {
+  foto: string;
+  titulo: string;
+}
+
+const { foto, titulo } = Astro.props;
+---
+
+<article class="articulo hover:scale-105 transition mx-2 relative w-96 h-96">
+  <img src={foto} alt="" class="absolute inset-0 object-cover" />
+  <!-- <p class="absolute bottom-0 left-1/2 -translate-x-1/2 text-xl text-white">
+    {titulo}
+  </p> -->
+</article>
+
+<style>
+  .articulo::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+  }
+
+  .articulo:hover::before {
+    opacity: 1;
+  }
+</style>
+
+<script>
+  window.addEventListener("DOMContentLoaded", () => {
+    const articulos = document.querySelectorAll(".articulo img");
+
+    articulos.forEach((articulo) => {
+      articulo.addEventListener("mouseover", () => {
+        articulo.classList.add("bg-zinc-400");
+      });
+    });
+
+    articulos.forEach((articulo) => {
+      articulo.addEventListener("mouseout", () => {
+        articulo.classList.remove("bg-zinc-400");
+      });
+    });
+  });
+</script>
