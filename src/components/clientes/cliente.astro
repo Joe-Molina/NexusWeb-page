@@ -1,10 +1,9 @@
 ---
 interface Props {
   foto: string;
-  titulo: string;
 }
 
-const { foto, titulo } = Astro.props;
+const { foto } = Astro.props;
 ---
 
 <article class="articulo hover:scale-105 transition mx-2 relative w-96 h-96">
@@ -31,21 +30,3 @@ const { foto, titulo } = Astro.props;
     opacity: 1;
   }
 </style>
-
-<script>
-  window.addEventListener("DOMContentLoaded", () => {
-    const articulos = document.querySelectorAll(".articulo img");
-
-    articulos.forEach((articulo) => {
-      articulo.addEventListener("mouseover", () => {
-        articulo.classList.add("bg-zinc-400");
-      });
-    });
-
-    articulos.forEach((articulo) => {
-      articulo.addEventListener("mouseout", () => {
-        articulo.classList.remove("bg-zinc-400");
-      });
-    });
-  });
-</script>
