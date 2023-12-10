@@ -1,57 +1,101 @@
 <header
-  class="flex text-white h-20 justify-end items-center font-bold fixed w-full z-50 bg-transparent transition-colors duration-300"
+  class="flex text-white h-20 justify-end items-center font-bold fixed w-full z-50 bg-transparent transition-colors duration-300 bg-zinc-900"
+  id="header"
 >
-  <a href="/" class="inline-block mr-5">
-    <img
-      src="/nexusweb.png"
-      alt="Logotipo de NexusWeb"
-      class="h-20 absolute left-6 top-4"
-    />
-  </a>
-  <nav class="mr-24">
-    <ul class="flex font-light">
-      <li>
+  <img
+    src="/nexusweb.png"
+    alt="Logotipo de NexusWeb"
+    class="h-20 absolute left-6 top-4 z-50"
+  />
+  <img
+    class="h-12 absolute right-6 top-4 lg:hidden"
+    id="menu-toggle"
+    src="/menu.png"
+    alt=""
+  />
+
+  <nav
+    class="w-full bg-zinc-900 z-20 hidden lg:flex lg:h-8 lg:bg-transparent lg:mr-20"
+    id="menu"
+  >
+    <ul
+      class="flex font-light flex-col justify-end items-center w-full lg:flex-row"
+    >
+      <li class="my-4">
         <a
           href="/"
-          class="mx-5 hover:text-gray-300"
+          class="btn-menu mx-5 hover:text-gray-300"
           aria-label="Ir a la página de inicio">Inicio</a
         >
       </li>
-      <li>
+      <li class="my-4">
         <a
           href="#sobrenosotros"
-          class="mx-5 hover:text-gray-300"
+          class="btn-menu mx-5 hover:text-gray-300"
           aria-label="Ir a la página de servicios">Sobre nosotros</a
         >
       </li>
-      <li>
+      <li class="my-4">
         <a
           href="#clientes"
-          class="mx-5 hover:text-gray-300"
+          class="btn-menu mx-5 hover:text-gray-300"
           aria-label="Ir a la página de portafolio">Portafolio</a
         >
       </li>
-      <li>
+      <li class="my-4">
         <a
           href="#contactanos"
-          class="mx-5 hover:text-gray-300"
+          class="btn-menu mx-5 hover:text-gray-300"
           aria-label="Ir a la página de sobre nosotros">Contactanos</a
         >
       </li>
     </ul>
   </nav>
-</header>
 
-<script>
-  window.addEventListener("scroll", function () {
-    const navbar = document.querySelector("header");
+  <script>
+    window.addEventListener("scroll", function () {
+      const navbar = document.querySelector("header");
 
-    if (navbar) {
-      if (window.scrollY > 0) {
-        navbar.classList.add("bg-zinc-900");
-      } else {
-        navbar.classList.remove("bg-zinc-900");
+      if (window.innerWidth > 768) {
+        if (navbar) {
+          if (window.scrollY > 0) {
+            navbar.classList.add("bg-zinc-900");
+          } else {
+            navbar.classList.remove("bg-zinc-900");
+          }
+        }
       }
+    });
+
+    if (window.innerWidth < 768) {
+      const header = document.getElementById("header");
+      const menuToggle = document.getElementById("menu-toggle");
+      const menu = document.getElementById("menu");
+
+      if (menu && menuToggle) {
+        menuToggle.addEventListener("click", function () {
+          console.log(1);
+          menu.classList.toggle("hidden");
+          if (header) {
+            header.classList.toggle("h-20");
+            header.classList.toggle("h-screen");
+          }
+        });
+      }
+
+      const btn_menu = document.querySelectorAll(".btn-menu");
+
+      btn_menu.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          if (menu) {
+            menu.classList.toggle("hidden");
+          }
+          if (header) {
+            header.classList.toggle("h-20");
+            header.classList.toggle("h-screen");
+          }
+        });
+      });
     }
-  });
-</script>
+  </script>
+</header>
