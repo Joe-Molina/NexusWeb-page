@@ -1,18 +1,40 @@
 <div
-  class="flex flex-col justify-center items-center h-screen bg-slate-500 bg-no-repeat bg-cover bg-gradient-to-tr sm:w-full"
+  class="flex flex-col justify-center items-center h-screen bg-slate-500 bg-no-repeat bg-cover bg-gradient-to-tr"
   style="background-image: url('/heroimg1.png')"
 >
-  <img src="/logo.png" alt="" class="w-48 mb-20 mt-44" />
+  <img
+    src="/logo.png"
+    alt=""
+    class="lg:w-48 lg:mb-20 lg:mt-44 w-32 mt-32 mb-10"
+  />
   <p
-    class="inline text-white text-5xl font-normal text-center mb-72 tracking-wide"
+    class="inline text-white lg:text-5xl text-3xl font-normal text-center lg:mb-72 mb-32 tracking-wide"
   >
     ¿Listo para impulsar tu presencia online?
   </p>
   <a
     href="#sobrenosotros"
-    class="flex justify-center items-center bg-white p-2 rounded-2xl absolute bottom-5 right-8 hover:scale-105 transition z-10"
+    class="flex justify-center items-center bg-white p-2 rounded-2xl absolute bottom-5 right-8 hover:scale-105 transition z-10 tag shadow"
   >
     Descubre lo que tenemos para ti
     <img src="/arrowdown.png" alt="" />
   </a>
 </div>
+
+<style>
+  .tag {
+    animation: float 5s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+</style>

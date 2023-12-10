@@ -6,13 +6,17 @@
   class="flex flex-col items-center justify-center max-w-5xl mx-auto"
   id="sobrenosotros"
 >
-  <p class="mt-32 text-zinc-400">Desarrollo de sitios y aplicaciones web</p>
-  <h2 class="text-center font-semibold text-4xl my-10">
+  <p class="lg:mt-32 mt-24 text-zinc-400 fade-in text-xs">
+    Desarrollo de sitios y aplicaciones web
+  </p>
+  <h2
+    class="text-center font-semibold lg:text-4xl text-xl lg:my-10 my-5 fade-in px-2 lg:px-0"
+  >
     Somos NexusWeb Un Equipo Creativo Dedicado al Diseño y Desarrollo De Sitios
     Web
   </h2>
 
-  <p class="text-zinc-400 text-center px-28 mb-10">
+  <p class="text-zinc-400 text-center lg:px-28 mb-10 fade-in text-sm px-3">
     Nexusweb es el resultado de la pasión de dos amigos por crecer como
     profesionales en el mundo del desarrollo de software. Como emprendimiento
     especializado en el desarrollo de sitios web, nos dedicamos a ofrecer
@@ -20,13 +24,13 @@
     que tengan una mejor pressencia online.
   </p>
 
-  <img src="/logonegro.png" alt="" class="mb-10" />
+  <img src="/logonegro.png" alt="" class="mb-10 fade-in" />
 
-  <p class="text-zinc-400 mb-3">¿te interesa nuestro trabajo?</p>
+  <p class="text-zinc-400 mb-3 fade-in">¿te interesa nuestro trabajo?</p>
 
   <a
     href="#"
-    class="border-2 px-12 py-3 border-neutral-950 tracking-widest hover:border-neutral-50 hover:bg-black hover:text-white transition mb-32"
+    class="border-2 px-12 py-3 border-neutral-950 tracking-widest hover:border-neutral-50 hover:bg-black hover:text-white transition lg:mb-32 mb-5 fade-in"
     >Ve nuestro Portafolio</a
   >
 </section>
@@ -37,3 +41,44 @@
   <div class="h-8 mx-3 bg-white w-px"></div>
   <p>Aplicaciones</p>
 </div>
+
+<style>
+  .fade-in {
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+  }
+
+  .fade-in.active {
+    animation: flash 0.5s ease-in-out;
+    opacity: 1;
+  }
+
+  @keyframes flash {
+    0% {
+      transform: translatex(-50px);
+    }
+    100% {
+      transform: translatex(0px);
+    }
+  }
+</style>
+
+<script>
+  function fadeInOnScroll() {
+    const elements = document.querySelectorAll(".fade-in");
+    elements.forEach((element) => {
+      const elementTop = element.getBoundingClientRect().top;
+      const elementBottom = element.getBoundingClientRect().bottom;
+      const viewportHeight = window.innerHeight;
+      if (elementTop < viewportHeight && elementBottom >= 0) {
+        element.classList.add("active");
+      } // else {
+      //   element.classList.remove("active");
+      // }
+    });
+  }
+
+  window.addEventListener("scroll", fadeInOnScroll);
+  window.addEventListener("resize", fadeInOnScroll);
+  window.addEventListener("load", fadeInOnScroll);
+</script>

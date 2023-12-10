@@ -9,18 +9,18 @@ const { cantidadPaginas, plan, price } = Astro.props;
 ---
 
 <article
-  class="flex justify-around items-center w-auto h-44
-   border-2 border-black m-5 rounded-xl py-5 px-10"
+  class="flex justify-around items-center w-auto lg:h-44
+   border-2 border-black lg:m-5 my-2 mx-5 rounded-xl lg:py-5 py-2 lg:px-10"
 >
-  <div class="flex flex-col justify-center items-center mr-10">
-    <b class="text-xl">{plan}</b>
-    <p class="text-4xl my-2">{price}$</p>
+  <div class="flex flex-col justify-center items-center lg:mr-10">
+    <b class="lg:text-xl">{plan}</b>
+    <p class="lg:text-4xl text-2xl my-2">{price}$</p>
   </div>
   <div>
-    <p class="my-1">• {cantidadPaginas} Paginas</p>
-    <p class="my-1">• Diseño perzonalizado basico</p>
-    <p class="my-1">• Iconos perzonalizados</p>
-    <p class="my-1">• Sketch y prototipo en Figma</p>
-    <p class="my-1">• Codigo del sitio web</p>
+    <p class="text-xs">• {cantidadPaginas} Paginas</p>
+    <p class="text-xs">• Diseño perzonalizado basico</p>
+    <p class="text-xs">• Iconos perzonalizados</p>
+    <p class="text-xs">• Sketch y prototipo en Figma</p>
+    <p class="text-xs">• Codigo del sitio web</p>
   </div>
 </article>

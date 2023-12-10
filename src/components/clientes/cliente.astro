@@ -6,6 +6,8 @@ interface Props {
 const { foto } = Astro.props;
 ---
 
-<article class="articulo hover:scale-105 transition mx-2 relative w-96 h-96">
-  <img src={foto} alt="" class="absolute inset-0 object-cover" />
+<article
+  class="articulo hover:scale-105 transition lg:mx-2 relative lg:w-96 lg:h-96 px-2 py-1"
+>
+  <img src={foto} alt="" class="" />
 </article>
