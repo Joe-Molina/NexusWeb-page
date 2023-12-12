@@ -1,20 +1,16 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import HeaderNav from "../components/HeaderNav.astro";
-import Inicio from "../components/inicio.astro";
-import About from "../components/sobreNosotros.astro";
-import Promos from "../components/planes.astro";
-import Clientes from "../components/proyectos.astro";
+import Inicio from "../components/inicioCorto.astro";
+import Planess from "../components/planes.astro";
 import Contactanos from "../components/contactanos.astro";
 import Footer from "../components/Footer.astro";
 ---
 
 <Layout title="Nexus Web">
   <HeaderNav />
-  <Inicio />
-  <About />
-  <Promos />
-  <Clientes />
+  <Inicio titulo="Planes" texto="Conoce los planes que tenemos para tí" />
+  <Planess />
   <Contactanos />
   <Footer />
 </Layout>
