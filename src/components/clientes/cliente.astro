@@ -2,9 +2,10 @@
 interface Props {
   foto: string;
   nombre: string;
+  paginaLink: string;
 }
 
-const { foto, nombre } = Astro.props;
+const { foto, nombre, paginaLink } = Astro.props;
 ---
 
 <article class="transition lg:mx-2 relative lg:w-96 lg:h-96 px-2 py-1">
@@ -15,7 +16,7 @@ const { foto, nombre } = Astro.props;
     >
       <p>{nombre}</p>
       <div>
-        <a href="#" class="border-r pr-1">Pagina oficial</a>
+        <a href={paginaLink} class="border-r pr-1">Pagina oficial</a>
         <a href="#">Repositorio</a>
       </div>
     </div>
