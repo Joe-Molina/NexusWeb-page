@@ -1,13 +1,70 @@
 ---
 interface Props {
   foto: string;
+  nombre: string;
 }
 
-const { foto } = Astro.props;
+const { foto, nombre } = Astro.props;
 ---
 
-<article
-  class="articulo hover:scale-105 transition lg:mx-2 relative lg:w-96 lg:h-96 px-2 py-1"
->
-  <img src={foto} alt="" class="" />
+<article class="transition lg:mx-2 relative lg:w-96 lg:h-96 px-2 py-1">
+  <article class="articulo hover:bg-black z-50 relative overflow-hidden">
+    <img src={foto} alt="" class="" />
+    <div
+      class="fade-inn flex flex-col justify-center absolute bottom-0 w-full text-center bg-white h-16"
+    >
+      <p>{nombre}</p>
+      <div>
+        <a href="#" class="border-r pr-1">Pagina oficial</a>
+        <a href="#">Repositorio</a>
+      </div>
+    </div>
+  </article>
 </article>
+
+<style>
+  .fade-inn {
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+  }
+
+  .fade-inn.active {
+    animation: flashh 0.3s ease-in-out;
+    opacity: 1;
+  }
+  @keyframes flashh {
+    0% {
+      transform: translatey(100px);
+    }
+    100% {
+      transform: translatey(0px);
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const contenedorArticulos = document.querySelectorAll(".articulo");
+    contenedorArticulos.forEach((articulo) => {
+      const marca = articulo.querySelector(".fade-inn");
+      const marcaimg = articulo.querySelector("img");
+      if (contenedorArticulos && marca) {
+        articulo.addEventListener("mouseover", () => {
+          marca.classList.add("active");
+          if (marcaimg) {
+            marcaimg.classList.add("opacity-50");
+          }
+        });
+      }
+
+      if (contenedorArticulos && marca) {
+        articulo.addEventListener("mouseout", () => {
+          marca.classList.remove("active");
+          if (marcaimg) {
+            marcaimg.classList.remove("opacity-50");
+          }
+        });
+      }
+    });
+  });
+</script>
